@@ -15,6 +15,8 @@ class _BloodState extends State<Blood> {
   List<TextEditingController> phoneController = <TextEditingController>[];
   List<TextEditingController> bloodGroupController = <TextEditingController>[];
 
+  // form key
+  final _formKey = GlobalKey<FormState>();
   List<String> bloodCornerData = [];
 
   @override
@@ -64,44 +66,54 @@ class _BloodState extends State<Blood> {
       body: SafeArea(
         child: Column(
           children: [
-            CustomField(
-              textFieldHeight: size.height * 0.08,
-              hintText: "Enter Your Full Name",
-              controller: fullNameController[0],
-            ),
-            CustomField(
-              textFieldHeight: size.height * 0.08,
-              keyboardType: TextInputType.number,
-              hintText: "Enter Your Phone Number",
-              controller: phoneController[0],
-            ),
-            CustomField(
-              textFieldHeight: size.height * 0.08,
-              hintText: "Enter Your Blood Group",
-              controller: bloodGroupController[0],
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: ElevatedButton(
-                onPressed: () => showBloodData(),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: kPrimaryColor,
-                  elevation: 0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+            Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  CustomField(
+                    textFieldHeight: size.height * 0.08,
+                    hintText: "Enter Your Full Name",
+                    controller: fullNameController[0],
+                    errorText: "Please Enter Your Full Name",
                   ),
-                  minimumSize: Size(
-                    double.infinity,
-                    size.height * 0.07,
+                  CustomField(
+                    textFieldHeight: size.height * 0.08,
+                    keyboardType: TextInputType.number,
+                    hintText: "Enter Your Phone Number",
+                    controller: phoneController[0],
+                    errorText: "Please Enter Your Phone Number",
                   ),
-                ),
-                child: Text(
-                  'Submit',
-                  style: textStyle.copyWith(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
+                  CustomField(
+                    textFieldHeight: size.height * 0.08,
+                    hintText: "Enter Your Blood Group",
+                    controller: bloodGroupController[0],
+                    errorText: "Please Enter Your Blood Group",
                   ),
-                ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: ElevatedButton(
+                      onPressed: () => showBloodData(),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: kPrimaryColor,
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        minimumSize: Size(
+                          double.infinity,
+                          size.height * 0.07,
+                        ),
+                      ),
+                      child: Text(
+                        'Submit',
+                        style: textStyle.copyWith(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             SizedBox(
@@ -125,7 +137,6 @@ class _BloodState extends State<Blood> {
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-
                     ),
                     title: Text(
                       bloodCornerData[index * 3],
