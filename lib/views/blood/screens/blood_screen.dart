@@ -116,11 +116,12 @@ class _BloodState extends State<Blood> {
                     leading: CircleAvatar(
                       radius: 20,
                       backgroundColor: Colors.transparent,
+                      foregroundColor: Colors.red,
                       child: Text(
                         bloodCornerData[index * 3][0],
                         style: textStyle.copyWith(
                           fontSize: 20,
-                          color: Colors.red,
+                          color: kPrimaryColor,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
@@ -130,6 +131,7 @@ class _BloodState extends State<Blood> {
                       bloodCornerData[index * 3],
                       style: textStyle.copyWith(
                         fontSize: 20,
+                        color: Color(0xff2c3e50),
                         fontWeight: FontWeight.w600,
                       ),
                     ),
