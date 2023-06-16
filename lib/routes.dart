@@ -6,7 +6,7 @@ import 'package:jpi_app/views/book_list/screen/select_tech.dart';
 import 'package:jpi_app/views/class_routine/screen/class_routine.dart';
 import 'package:jpi_app/views/class_routine/screen/select_semester.dart';
 import 'package:jpi_app/views/home/screen/home_screen.dart';
-import 'package:jpi_app/views/location/location_screen.dart';
+
 import 'package:jpi_app/views/starter/screen/starter.dart';
 import 'package:jpi_app/views/teachers_list/screen/teachers_screen.dart';
 
@@ -78,13 +78,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         settings: routeSettings,
         duration: const Duration(milliseconds: 400),
       );
-    case LocationScreen.routeName:
-      return PageTransition(
-        child: const LocationScreen(),
-        type: PageTransitionType.bottomToTop,
-        settings: routeSettings,
-        duration: const Duration(milliseconds: 400),
-      );
+
     default:
       return MaterialPageRoute(
         builder: (context) => Scaffold(

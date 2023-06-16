@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jpi_app/views/blood/screens/blood_screen.dart';
 import 'package:jpi_app/views/class_routine/screen/class_routine.dart';
 import 'package:jpi_app/views/home/screen/home_screen.dart';
 import 'package:jpi_app/views/starter/widgets/bottom_navbar.dart';
@@ -20,9 +21,7 @@ class _StarterState extends State<Starter> {
       child: Image.asset('assets/images/coming-soon.gif'),
     ),
     ClassRoutine(),
-    Center(
-      child: Image.asset('assets/images/coming-soon.gif'),
-    ),
+    Blood(),
   ];
 
   @override
