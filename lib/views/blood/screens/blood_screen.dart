@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jpi_app/constants/constants.dart';
 import 'package:jpi_app/constants/widgets/custom_appbar.dart';
 import 'package:jpi_app/views/blood/widgets/customFields.dart';
 
@@ -40,19 +41,18 @@ class _BloodState extends State<Blood> {
     super.dispose();
   }
 
-   // show the blood corner data
   void showBloodData() {
     setState(() {
-      // add the data
       bloodCornerData.add(fullNameController[0].text);
       bloodCornerData.add(phoneController[0].text);
       bloodCornerData.add(bloodGroupController[0].text);
-      // clear the Data
+      // clear the fields
       fullNameController[0].clear();
       phoneController[0].clear();
       bloodGroupController[0].clear();
     });
   }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -71,6 +71,7 @@ class _BloodState extends State<Blood> {
             ),
             CustomField(
               textFieldHeight: size.height * 0.08,
+              keyboardType: TextInputType.number,
               hintText: "Enter Your Phone Number",
               controller: phoneController[0],
             ),
@@ -78,6 +79,78 @@ class _BloodState extends State<Blood> {
               textFieldHeight: size.height * 0.08,
               hintText: "Enter Your Blood Group",
               controller: bloodGroupController[0],
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: ElevatedButton(
+                onPressed: () => showBloodData(),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: kPrimaryColor,
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  minimumSize: Size(
+                    double.infinity,
+                    size.height * 0.07,
+                  ),
+                ),
+                child: Text(
+                  'Submit',
+                  style: textStyle.copyWith(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: size.height * 0.02,
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: bloodCornerData.length ~/ 3,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    leading: CircleAvatar(
+                      radius: 20,
+                      backgroundColor: Colors.transparent,
+                      child: Text(
+                        bloodCornerData[index * 3][0],
+                        style: textStyle.copyWith(
+                          fontSize: 20,
+                          color: Colors.red,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+
+                    ),
+                    title: Text(
+                      bloodCornerData[index * 3],
+                      style: textStyle.copyWith(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    subtitle: Text(
+                      bloodCornerData[index * 3 + 1],
+                      style: textStyle.copyWith(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    trailing: Text(
+                      bloodCornerData[index * 3 + 2],
+                      style: textStyle.copyWith(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.red,
+                      ),
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),
