@@ -84,17 +84,20 @@ class _BloodState extends State<Blood> {
                     hintText: "Enter Your Full Name",
                     controller: fullNameController[0],
                   ),
+                  SizedBox(height: size.height * 0.02),
                   CustomField(
                     textFieldHeight: size.height * 0.08,
                     keyboardType: TextInputType.number,
                     hintText: "Enter Your Phone Number",
                     controller: phoneController[0],
                   ),
+                  SizedBox(height: size.height * 0.02),
                   CustomField(
                     textFieldHeight: size.height * 0.08,
                     hintText: "Enter Your Blood Group",
                     controller: bloodGroupController[0],
                   ),
+                  SizedBox(height: size.height * 0.02),
                   CustomButton(
                     btnText: "Submit",
                     onPressed: () async {
