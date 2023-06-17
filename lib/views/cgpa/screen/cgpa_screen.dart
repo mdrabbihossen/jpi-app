@@ -14,6 +14,8 @@ class CGPA extends StatefulWidget {
 }
 
 class _CGPAState extends State<CGPA> {
+  // form key
+  final _formKey = GlobalKey<FormState>();
   final TextEditingController firstSemesterController = TextEditingController();
   final TextEditingController secondSemesterController =
       TextEditingController();
@@ -101,85 +103,100 @@ class _CGPAState extends State<CGPA> {
                     SizedBox(
                       height: size.height * 0.05,
                     ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: CustomField(
-                            textFieldHeight: size.height * 0.07,
-                            hintText: "1st Semester",
-                            controller: firstSemesterController,
+                    Form(
+                      key: _formKey,
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Expanded(
+                                child: CustomField(
+                                  textFieldHeight: size.height * 0.07,
+                                  keyboardType: TextInputType.number,
+                                  hintText: "1st Semester",
+                                  controller: firstSemesterController,
+                                ),
+                              ),
+                              Expanded(
+                                child: CustomField(
+                                  textFieldHeight: size.height * 0.07,
+                                  keyboardType: TextInputType.number,
+                                  hintText: "2nd Semester",
+                                  controller: secondSemesterController,
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                        Expanded(
-                          child: CustomField(
-                            textFieldHeight: size.height * 0.07,
-                            hintText: "2nd Semester",
-                            controller: secondSemesterController,
+                          SizedBox(height: size.height * 0.02),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: CustomField(
+                                  textFieldHeight: size.height * 0.07,
+                                  keyboardType: TextInputType.number,
+                                  hintText: "3rd Semester",
+                                  controller: thirdSemesterController,
+                                ),
+                              ),
+                              Expanded(
+                                child: CustomField(
+                                  textFieldHeight: size.height * 0.07,
+                                  keyboardType: TextInputType.number,
+                                  hintText: "4th Semester",
+                                  controller: fourthSemesterController,
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: size.height * 0.02),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: CustomField(
-                            textFieldHeight: size.height * 0.07,
-                            hintText: "3rd Semester",
-                            controller: thirdSemesterController,
+                          SizedBox(height: size.height * 0.02),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: CustomField(
+                                  textFieldHeight: size.height * 0.07,
+                                  keyboardType: TextInputType.number,
+                                  hintText: "5th Semester",
+                                  controller: fifthSemesterController,
+                                ),
+                              ),
+                              Expanded(
+                                child: CustomField(
+                                  textFieldHeight: size.height * 0.07,
+                                  keyboardType: TextInputType.number,
+                                  hintText: "6th Semester",
+                                  controller: sixthSemesterController,
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                        Expanded(
-                          child: CustomField(
-                            textFieldHeight: size.height * 0.07,
-                            hintText: "4th Semester",
-                            controller: fourthSemesterController,
+                          SizedBox(height: size.height * 0.02),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: CustomField(
+                                  textFieldHeight: size.height * 0.07,
+                                  keyboardType: TextInputType.number,
+                                  hintText: "7th Semester",
+                                  controller: seventhSemesterController,
+                                ),
+                              ),
+                              Expanded(
+                                child: CustomField(
+                                  textFieldHeight: size.height * 0.07,
+                                  keyboardType: TextInputType.number,
+                                  hintText: "8th Semester",
+                                  controller: eighthSemesterController,
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: size.height * 0.02),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: CustomField(
-                            textFieldHeight: size.height * 0.07,
-                            hintText: "5th Semester",
-                            controller: fifthSemesterController,
+                          SizedBox(height: size.height * 0.02),
+                          CustomButton(
+                            onPressed: () => calculateCGPA(),
+                            btnText: "Calculate",
                           ),
-                        ),
-                        Expanded(
-                          child: CustomField(
-                            textFieldHeight: size.height * 0.07,
-                            hintText: "6th Semester",
-                            controller: sixthSemesterController,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: size.height * 0.02),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: CustomField(
-                            textFieldHeight: size.height * 0.07,
-                            hintText: "7th Semester",
-                            controller: seventhSemesterController,
-                          ),
-                        ),
-                        Expanded(
-                          child: CustomField(
-                            textFieldHeight: size.height * 0.07,
-                            hintText: "8th Semester",
-                            controller: eighthSemesterController,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: size.height * 0.02),
-                    CustomButton(
-                      onPressed: () => calculateCGPA(),
-                      btnText: "Calculate",
+                        ],
+                      ),
                     ),
                     SizedBox(height: size.height * 0.02),
                     Container(

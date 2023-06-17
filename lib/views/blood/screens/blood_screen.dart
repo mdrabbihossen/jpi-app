@@ -83,6 +83,7 @@ class _BloodState extends State<Blood> {
                     textFieldHeight: size.height * 0.08,
                     hintText: "Enter Your Full Name",
                     controller: fullNameController[0],
+
                   ),
                   SizedBox(height: size.height * 0.02),
                   CustomField(
@@ -90,18 +91,21 @@ class _BloodState extends State<Blood> {
                     keyboardType: TextInputType.number,
                     hintText: "Enter Your Phone Number",
                     controller: phoneController[0],
+
                   ),
                   SizedBox(height: size.height * 0.02),
                   CustomField(
                     textFieldHeight: size.height * 0.08,
                     hintText: "Enter Your Blood Group",
                     controller: bloodGroupController[0],
+
                   ),
                   SizedBox(height: size.height * 0.02),
                   CustomButton(
                     btnText: "Submit",
                     onPressed: () async {
                       showBloodData();
+                      // save to shared preferences
                       await BloodPrefences.setFullName(
                           bloodCornerData[bloodCornerData.length - 3]);
                       await BloodPrefences.setPhone(

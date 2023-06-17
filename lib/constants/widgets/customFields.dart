@@ -7,12 +7,14 @@ class CustomField extends StatelessWidget {
   final double textFieldHeight;
   final TextInputType? keyboardType;
 
+
   const CustomField({
     Key? key,
     required this.hintText,
     required this.controller,
     required this.textFieldHeight,
     this.keyboardType,
+
   }) : super(key: key);
 
   @override
@@ -33,11 +35,13 @@ class CustomField extends StatelessWidget {
         style: textStyle.copyWith(
           fontSize: 17,
         ),
+
         cursorColor: Color(0xff5b777b),
         decoration: InputDecoration(
           contentPadding: EdgeInsets.all(20),
           border: InputBorder.none,
           hintText: hintText,
+
           hintStyle: textStyle.copyWith(
             fontSize: 15,
             fontWeight: FontWeight.w100,
