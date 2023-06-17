@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:jpi_app/constants/constants.dart';
+import 'package:jpi_app/controller/blood_preferences.dart';
 import 'package:jpi_app/routes.dart';
 import 'package:jpi_app/views/splash/splash_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await BloodPrefences.init();
   runApp(const MyApp());
 }
 

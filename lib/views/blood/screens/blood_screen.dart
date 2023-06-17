@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jpi_app/constants/constants.dart';
 import 'package:jpi_app/constants/widgets/custom_appbar.dart';
+import 'package:jpi_app/controller/blood_preferences.dart';
 import 'package:jpi_app/views/blood/widgets/customFields.dart';
 
 class Blood extends StatefulWidget {
@@ -26,6 +27,11 @@ class _BloodState extends State<Blood> {
     fullNameController = [TextEditingController()];
     phoneController = [TextEditingController()];
     bloodGroupController = [TextEditingController()];
+    setState(() {
+      bloodCornerData.add(BloodPrefences.getFullName() ?? '');
+      bloodCornerData.add(BloodPrefences.getPhone() ?? '');
+      bloodCornerData.add(BloodPrefences.getBloodGroup() ?? '');
+    });
   }
 
   @override
@@ -74,25 +80,30 @@ class _BloodState extends State<Blood> {
                     textFieldHeight: size.height * 0.08,
                     hintText: "Enter Your Full Name",
                     controller: fullNameController[0],
-                    errorText: "Please Enter Your Full Name",
                   ),
                   CustomField(
                     textFieldHeight: size.height * 0.08,
                     keyboardType: TextInputType.number,
                     hintText: "Enter Your Phone Number",
                     controller: phoneController[0],
-                    errorText: "Please Enter Your Phone Number",
                   ),
                   CustomField(
                     textFieldHeight: size.height * 0.08,
                     hintText: "Enter Your Blood Group",
                     controller: bloodGroupController[0],
-                    errorText: "Please Enter Your Blood Group",
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: ElevatedButton(
-                      onPressed: () => showBloodData(),
+                      onPressed: () async {
+                        showBloodData();
+                        await BloodPrefences.setFullName(
+                            bloodCornerData[bloodCornerData.length - 3]);
+                        await BloodPrefences.setPhone(
+                            bloodCornerData[bloodCornerData.length - 2]);
+                        await BloodPrefences.setBloodGroup(
+                            bloodCornerData[bloodCornerData.length - 1]);
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: kPrimaryColor,
                         elevation: 0,
