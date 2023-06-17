@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jpi_app/constants/constants.dart';
 import 'package:jpi_app/constants/widgets/custom_appbar.dart';
 import 'package:jpi_app/controller/blood_preferences.dart';
-import 'package:jpi_app/views/blood/widgets/customFields.dart';
+import 'package:jpi_app/constants/widgets/customFields.dart';
 
 class Blood extends StatefulWidget {
   const Blood({Key? key}) : super(key: key);
