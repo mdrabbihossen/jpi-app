@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jpi_app/constants/constants.dart';
 import 'package:jpi_app/constants/widgets/custom_appbar.dart';
+import 'package:jpi_app/constants/widgets/custom_button.dart';
 import 'package:jpi_app/controller/blood_preferences.dart';
 import 'package:jpi_app/constants/widgets/customFields.dart';
 
@@ -93,38 +94,19 @@ class _BloodState extends State<Blood> {
                     hintText: "Enter Your Blood Group",
                     controller: bloodGroupController[0],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: ElevatedButton(
-                      onPressed: () async {
-                        showBloodData();
-                        await BloodPrefences.setFullName(
-                            bloodCornerData[bloodCornerData.length - 3]);
-                        await BloodPrefences.setPhone(
-                            bloodCornerData[bloodCornerData.length - 2]);
-                        await BloodPrefences.setBloodGroup(
-                            bloodCornerData[bloodCornerData.length - 1]);
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: kPrimaryColor,
-                        elevation: 0,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        minimumSize: Size(
-                          double.infinity,
-                          size.height * 0.07,
-                        ),
-                      ),
-                      child: Text(
-                        'Submit',
-                        style: textStyle.copyWith(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ),
-                  ),
+                  CustomButton(
+                    btnText: "Submit",
+                    onPressed: () async {
+                      showBloodData();
+                      await BloodPrefences.setFullName(
+                          bloodCornerData[bloodCornerData.length - 3]);
+                      await BloodPrefences.setPhone(
+                          bloodCornerData[bloodCornerData.length - 2]);
+                      await BloodPrefences.setBloodGroup(
+                        bloodCornerData[bloodCornerData.length - 1],
+                      );
+                    },
+                  )
                 ],
               ),
             ),

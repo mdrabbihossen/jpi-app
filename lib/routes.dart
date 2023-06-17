@@ -3,6 +3,7 @@ import 'package:jpi_app/views/about/screens/about-dev.dart';
 import 'package:jpi_app/views/about/screens/about_jpi.dart';
 import 'package:jpi_app/views/book_list/screen/book_list_screen.dart';
 import 'package:jpi_app/views/book_list/screen/select_tech.dart';
+import 'package:jpi_app/views/cgpa/screen/cgpa_screen.dart';
 import 'package:jpi_app/views/class_routine/screen/class_routine.dart';
 import 'package:jpi_app/views/class_routine/screen/select_semester.dart';
 import 'package:jpi_app/views/home/screen/home_screen.dart';
@@ -78,7 +79,13 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         settings: routeSettings,
         duration: const Duration(milliseconds: 400),
       );
-
+    case CGPA.routeName:
+      return PageTransition(
+        child: const CGPA(),
+        type: PageTransitionType.rightToLeft,
+        settings: routeSettings,
+        duration: const Duration(milliseconds: 400),
+      );
     default:
       return MaterialPageRoute(
         builder: (context) => Scaffold(

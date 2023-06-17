@@ -17,34 +17,30 @@ class CustomField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: 20,
-        vertical: 10,
+    return Container(
+      height: textFieldHeight,
+      margin: EdgeInsets.symmetric(
+        horizontal: 7,
       ),
-      child: Container(
-        width: double.infinity,
-        height: textFieldHeight,
-        decoration: BoxDecoration(
-          color: Color(0xffe8f0f1),
-          borderRadius: BorderRadius.circular(10),
+      decoration: BoxDecoration(
+        color: Color(0xffe8f0f1),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: TextFormField(
+        controller: controller,
+        keyboardType: keyboardType ?? TextInputType.text,
+        cursorHeight: 27,
+        style: textStyle.copyWith(
+          fontSize: 17,
         ),
-        child: TextFormField(
-          controller: controller,
-          keyboardType: keyboardType ?? TextInputType.text,
-          cursorHeight: 27,
-          style: textStyle.copyWith(
-            fontSize: 17,
-          ),
-          cursorColor: Color(0xff5b777b),
-          decoration: InputDecoration(
-            contentPadding: EdgeInsets.all(20),
-            border: InputBorder.none,
-            hintText: hintText,
-            hintStyle: textStyle.copyWith(
-              fontSize: 15,
-              fontWeight: FontWeight.w100,
-            ),
+        cursorColor: Color(0xff5b777b),
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.all(20),
+          border: InputBorder.none,
+          hintText: hintText,
+          hintStyle: textStyle.copyWith(
+            fontSize: 15,
+            fontWeight: FontWeight.w100,
           ),
         ),
       ),
