@@ -4,6 +4,7 @@ import 'package:jpi_app/constants/widgets/custom_appbar.dart';
 import 'package:jpi_app/constants/widgets/custom_button.dart';
 import 'package:jpi_app/controller/blood_preferences.dart';
 import 'package:jpi_app/constants/widgets/customFields.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class Blood extends StatefulWidget {
   const Blood({Key? key}) : super(key: key);
@@ -119,6 +120,9 @@ class _BloodState extends State<Blood> {
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   return ListTile(
+                    onLongPress: () {
+                      // remove from shared preferences
+                    },
                     leading: CircleAvatar(
                       radius: 20,
                       backgroundColor: Colors.transparent,
