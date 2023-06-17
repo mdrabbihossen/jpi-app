@@ -54,6 +54,15 @@ class _CGPAState extends State<CGPA> {
           seventhSemester +
           eighthSemester);
       cgpa = double.parse(totalCgpa.toStringAsFixed(2));
+      // clear the fields
+      firstSemesterController.clear();
+      secondSemesterController.clear();
+      thirdSemesterController.clear();
+      fourthSemesterController.clear();
+      fifthSemesterController.clear();
+      sixthSemesterController.clear();
+      seventhSemesterController.clear();
+      eighthSemesterController.clear();
     });
   }
 
