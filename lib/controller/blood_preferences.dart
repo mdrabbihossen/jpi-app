@@ -27,17 +27,17 @@ class BloodPrefences {
 
   // get full name
   static String? getFullName() {
-    return _prefs!.getString(_fullName)??"";
+    return _prefs!.getString(_fullName) ?? "";
   }
 
   // get phone number
   static String? getPhone() {
-    return _prefs!.getString(_phone)??"";
+    return _prefs!.getString(_phone) ?? "";
   }
 
   // get blood group
   static String? getBloodGroup() {
-    return _prefs!.getString(_bloodGroup)??"";
+    return _prefs!.getString(_bloodGroup) ?? "";
   }
 
   // delete

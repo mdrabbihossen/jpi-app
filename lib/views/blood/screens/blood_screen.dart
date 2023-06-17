@@ -29,6 +29,7 @@ class _BloodState extends State<Blood> {
     bloodGroupController = [TextEditingController()];
     setState(() {
       bloodCornerData.add(BloodPrefences.getFullName() ?? '');
+
       bloodCornerData.add(BloodPrefences.getPhone() ?? '');
       bloodCornerData.add(BloodPrefences.getBloodGroup() ?? '');
     });
