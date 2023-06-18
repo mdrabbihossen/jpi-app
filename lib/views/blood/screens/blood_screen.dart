@@ -83,7 +83,6 @@ class _BloodState extends State<Blood> {
                     textFieldHeight: size.height * 0.08,
                     hintText: "Enter Your Full Name",
                     controller: fullNameController[0],
-
                   ),
                   SizedBox(height: size.height * 0.02),
                   CustomField(
@@ -91,14 +90,12 @@ class _BloodState extends State<Blood> {
                     keyboardType: TextInputType.number,
                     hintText: "Enter Your Phone Number",
                     controller: phoneController[0],
-
                   ),
                   SizedBox(height: size.height * 0.02),
                   CustomField(
                     textFieldHeight: size.height * 0.08,
                     hintText: "Enter Your Blood Group",
                     controller: bloodGroupController[0],
-
                   ),
                   SizedBox(height: size.height * 0.02),
                   CustomButton(
@@ -126,23 +123,25 @@ class _BloodState extends State<Blood> {
                 itemCount: bloodCornerData.length ~/ 3,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
+                  // invalid value valid value range is empty
+
                   return ListTile(
                     onLongPress: () {
                       // remove from shared preferences
                     },
-                    leading: CircleAvatar(
-                      radius: 20,
-                      backgroundColor: Colors.transparent,
-                      foregroundColor: Colors.red,
-                      child: Text(
-                        bloodCornerData[index * 3][0],
-                        style: textStyle.copyWith(
-                          fontSize: 20,
-                          color: kPrimaryColor,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ),
+                    // leading: CircleAvatar(
+                    //   radius: 20,
+                    //   backgroundColor: Colors.transparent,
+                    //   foregroundColor: Colors.red,
+                    //   child: Text(
+                    //     bloodCornerData[index * 3][0],
+                    //     style: textStyle.copyWith(
+                    //       fontSize: 20,
+                    //       color: kPrimaryColor,
+                    //       fontWeight: FontWeight.w700,
+                    //     ),
+                    //   ),
+                    // ),
                     title: Text(
                       bloodCornerData[index * 3],
                       style: textStyle.copyWith(

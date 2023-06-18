@@ -19,11 +19,6 @@ class ClassRoutine extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: size.height * 0.04),
-            CategoryTiles(
-              onTap: (){
-                Navigator.pushNamed(context, "/book-list");
-              }
-            ),
           ],
         ),
       ),
