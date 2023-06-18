@@ -134,7 +134,9 @@ class _BloodState extends State<Blood> {
                     //   backgroundColor: Colors.transparent,
                     //   foregroundColor: Colors.red,
                     //   child: Text(
-                    //     bloodCornerData[index * 3][0],
+                    //     bloodCornerData[index * 3][0].isNotEmpty
+                    //         ? bloodCornerData[index * 3][0]
+                    //         : '',
                     //     style: textStyle.copyWith(
                     //       fontSize: 20,
                     //       color: kPrimaryColor,

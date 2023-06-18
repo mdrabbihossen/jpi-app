@@ -39,9 +39,4 @@ class BloodPrefences {
   static String? getBloodGroup() {
     return _prefs!.getString(_bloodGroup) ?? "";
   }
-
-  // delete
-  static Future delete() async {
-    return _prefs!.clear();
-  }
 }
